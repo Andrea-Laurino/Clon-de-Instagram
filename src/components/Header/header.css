@@ -1,0 +1,38 @@
+.navbar{
+    background-color: white;
+    border-right: 1px solid lightgray;
+    width: 244px;
+    height: 100vh;
+}
+
+.header{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;  
+    justify-content: space-between;
+    position: fixed;
+    left: 20px;
+    top: 40px;
+}
+
+.header-logo{
+    object-fit: contain;
+}
+.img-logo{
+   
+    height: 29px;
+    width: 103px;
+}
+
+.header-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+
+    
+}
+
+p{
+    margin-top: 10px;
+    margin-left: 10px;
+}

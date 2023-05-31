@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;600;700&family=Rubik:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+}
+
+.app{
+    background-color: #fafafa;
+    height: 100vh;
+    font-family: 'Roboto Flex', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
