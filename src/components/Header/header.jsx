@@ -12,7 +12,6 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 const header = () => {
   return (
     <>
-    <div className="navbar">
       <div className="header">
         <div className="header-logo">
           <img alt="logo de instagram" className='img-logo' src="src/assets/instagram-logo-17.png"/>
@@ -46,7 +45,7 @@ const header = () => {
             <p className="header-txt">Crear</p>
           </div>
       </div>
-    </div>
+
     </>
   );
 }

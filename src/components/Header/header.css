@@ -1,12 +1,9 @@
-.navbar{
-    background-color: white;
-    border-right: 1px solid lightgray;
-    width: 244px;
-    height: 100vh;
-}
+
 
 .header{
+    width: 244px;
     height: 50vh;
+    border-right: 1px solid lightgray;
     display: flex;
     flex-direction: column;  
     justify-content: space-between;
@@ -28,8 +25,6 @@
     display: flex;
     flex-direction: row;
     justify-content:left;
-
-    
 }
 
 p{
