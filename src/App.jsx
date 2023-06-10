@@ -4,6 +4,8 @@ import Header from "./components/Header/header";
 import Post from "./components/Post/post";
 import { db } from './Firebase/firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import HistoryPanel from './components/HistoryPanel/historyPanel';
+import Uploader from './components/Uploader/uploader';
 
 async function fetchPosts() {
   try {
@@ -38,6 +40,7 @@ function App() {
   return (
     <div className="app">
       <Header />
+      <HistoryPanel />
       {posts.map(({ id, post }) => (
         <Post
           key={id}
@@ -47,6 +50,8 @@ function App() {
           caption={post.caption}
         />
       ))}
+
+      <Uploader />
     </div>
   );
 }

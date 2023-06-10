@@ -6,20 +6,22 @@ import ExploreIcon from '@mui/icons-material/Explore'; //explorar
 import SlideshowIcon from '@mui/icons-material/Slideshow'; //reels
 import MapsUgcIcon from '@mui/icons-material/MapsUgc'; //messenger
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'; //favorite
+import MenuIcon from '@mui/icons-material/Menu'; //menu hamburguesa
 import AddBoxIcon from '@mui/icons-material/AddBox';
-// import Auth from './Auth'
+import Auth from '../Auth/auth'
 
 const header = () => {
   return (
     <>
-      <div className="header">
-        <div className="header-logo">
-          <img alt="logo de instagram" className='img-logo' src="src/assets/instagram-logo-17.png"/>
-        </div>
-        <div className="header-icons">
-            <HomeIcon fontSize='large'/>
-            <p className="header-txt">Inicio</p>
-        </div>
+       <div className='container-header'>
+        <div className="header">
+          <div className="header-logo">
+            <img alt="logo de instagram" className='img-logo' src="src/assets/instagram-logo-17.png"/>
+          </div>
+          <div className="header-icons">
+              <HomeIcon fontSize='large'/>
+              <p className="header-txt">Inicio</p>
+          </div>
           <div className="header-icons">
             <SearchIcon fontSize='large'/>
             <p className="header-txt">Buscar</p>
@@ -44,6 +46,14 @@ const header = () => {
             <AddBoxIcon fontSize='large'/>
             <p className="header-txt">Crear</p>
           </div>
+          <div className="header-icons">
+            <Auth />
+          </div>
+          <div className='header-icons'>
+            <MenuIcon fontSize='large'/>
+            <p className="header-txt">Más</p>  
+          </div>
+        </div>
       </div>
 
     </>

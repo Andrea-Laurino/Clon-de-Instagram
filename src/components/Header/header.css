@@ -1,13 +1,19 @@
-
+.container-header{
+    border-right: 1px solid #d3d3d3;
+    width: 244px;
+    height: 936px;
+    position: fixed; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 .header{
-    width: 244px;
+    position: fixed;
     height: 50vh;
-    border-right: 1px solid lightgray;
     display: flex;
     flex-direction: column;  
     justify-content: space-between;
-    position: fixed;
     left: 20px;
     top: 40px;
 }
@@ -16,18 +22,40 @@
     object-fit: contain;
 }
 .img-logo{
-   
-    height: 29px;
-    width: 103px;
+    height: 63px;
+    width: 178px;
 }
 
 .header-icons{
     display: flex;
     flex-direction: row;
     justify-content:left;
+    line-height:18px;
+    margin:4px 0px;
+    padding:12px;
 }
 
 p{
     margin-top: 10px;
     margin-left: 10px;
+}
+
+.header-plus{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 25px;
+    left: 20px;
+}
+
+p{
+    font-weight: normal;
+    padding-left: 35px;
+}
+
+.header-icons:nth-child(10){
+    display: inline-flex;
+    margin-top: 210px ;
+   
 }

@@ -10,7 +10,7 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db } from '../../Firebase/firebase';
-import { collection, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, orderBy, onSnapshot, serverTimestamp, addDoc, query, getDocs } from 'firebase/firestore';
 
 const Post = (props) => {
   const [liked, setLiked] = useState(false);
@@ -23,13 +23,8 @@ const Post = (props) => {
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
+      setUser(user || null);
     });
-
     return () => {
       unsubscribe();
     };
@@ -37,44 +32,57 @@ const Post = (props) => {
 
   useEffect(() => {
     if (props.id) {
-      const unsubscribe = async () => {
-        const commentsRef = collection(db, 'posts', props.id, 'comments');
-        const commentsQuery = orderBy(commentsRef, 'timestamp', 'asc');
-        const unsubscribeComments = onSnapshot(commentsQuery, (snapshot) => {
-          setComments(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              comment: doc.data()
-            }))
-          );
-        });
-  
+      const commentsRef = collection(db, 'posts', props.id, 'comments');
+      const commentsQuery = query(commentsRef, orderBy('timestamp', 'asc'));
+
+      const unsubscribeComments = onSnapshot(commentsQuery, (snapshot) => {
+        setComments(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            comment: doc.data()
+          }))
+        );
+      });
+
+      return () => {
         unsubscribeComments();
       };
-  
-      unsubscribe();
     }
   }, [props.id]);
-  
-  const addComment = (e) => {
+
+  const addComment = async (e) => {
     e.preventDefault();
     if (!comment) return;
 
-    const commentsRef = collection(db, 'posts', props.id, 'comments');
-    db.addDoc(commentsRef, {
-      timestamp: db.serverTimestamp(),
-      text: comment,
-      username: user.displayName
-    });
+    try {
+      await addDoc(collection(db, 'posts', props.id, 'comments'), {
+        timestamp: serverTimestamp(),
+        text: comment,
+        username: props.username
+      });
+      setComment('');
+      setShowCommentInput(false);
+    } catch (error) {
+      console.error('Error al agregar el comentario:', error);
+    }
+  };
+  
+  const handleLikeClick = () => {
+    setLiked((prevState) => !prevState);
+  };
 
-    setComment('');
-    setShowCommentInput(false);
+  const handleCommentIconClick = () => {
+    setShowCommentInput((prevState) => !prevState);
+  };
+
+  const handleBookmarkClick = () => {
+    setBookmarked((prevState) => !prevState);
   };
 
   return (
     <div className='post'>
       <div className='post-header'>
-        <Avatar className='post-avatar' alt={props.username} src='/static/image/avatar/1.jpg' />
+        <Avatar className='post-avatar' alt={props.username} src="" />
         <h3>{props.username}</h3>
       </div>
       <div>
@@ -84,17 +92,14 @@ const Post = (props) => {
             <div>
               {!liked ? (
                 <div className='post-icon'>
-                  <FavoriteBorderIcon onClick={() => setLiked(true)} />
+                  <FavoriteBorderIcon onClick={handleLikeClick} />
                 </div>
               ) : (
                 <div className='post-icon'>
-                  <FavoriteIcon color='secondary' onClick={() => setLiked(false)} />
+                  <FavoriteIcon color='error' onClick={handleLikeClick} />
                 </div>
               )}
-              <div
-                className='post-icon'
-                onClick={() => setShowCommentInput((prevState) => !prevState)}
-              >
+              <div className='post-icon' onClick={handleCommentIconClick}>
                 <ChatBubbleOutlineOutlinedIcon />
               </div>
               <div className='post-icon'>
@@ -103,53 +108,58 @@ const Post = (props) => {
             </div>
             <div>
               {!bookmarked ? (
-                <div className='post-icon'>
-                  <BookmarkBorderIcon onClick={() => setBookmarked(true)} />
+                <div className='post-icon' onClick={handleBookmarkClick}>
+                  <BookmarkBorderIcon />
                 </div>
               ) : (
-                <div className='post-icon'>
-                  <BookmarkIcon onClick={() => setBookmarked(false)} />
+                <div className='post-icon' onClick={handleBookmarkClick}>
+                  <BookmarkIcon />
                 </div>
               )}
             </div>
           </div>
         ) : (
-          <h5 className='post-alert'>Sign in to see actions</h5>
+          <h5 className='post-alert'>Inicia sesión para ver las acciones</h5>
         )}
         <h4 className='post-description'>
-          <strong>{props.username}</strong>
-          {props.caption}
+          <strong>{props.username}</strong>: {'  '}
+            {props.caption}
         </h4>
-        <div className='post-comments'>
+      </div>
+      <div className='post-comments'>
           {comments.map(({ id, comment }) => (
             <h4 key={id} className='post-comment'>
-              <strong>{props.username}</strong>
+                <strong>{comment.username}</strong>: {'  '}
               {comment.text}
             </h4>
-          ))}
-        </div>
-        {showCommentInput && (
-          <form className='post-comment-form'>
-            <TextField
-              id='comment'
-              label='Comment'
-              fullWidth
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-            />
-            <Button
-              type='submit'
-              disabled={!comment}
-              onClick={addComment}
-              className='post-comment-button'
-              variant='outlined'
-              endIcon={<PostAddIcon />}
-            >
-              Post
-            </Button>
-          </form>
-        )}
+        ))}
       </div>
+      {showCommentInput && user ? (
+        <form className='post-comment-form'>
+          <TextField
+            id='comment'
+            label='Comment'
+            fullWidth
+            multiline
+            variant="standard"
+            placeholder='Agrega un comentario...'
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            inputProps={{ style: { color: '#333333' } }}
+          />
+          <Button
+            className='post-comment-button'
+            type='submit'
+            disabled={!comment}
+            onClick={addComment}
+            variant='outlined'
+            color='inherit'
+            endIcon={<PostAddIcon />}
+          >
+            Publicar
+          </Button>
+        </form>
+      ) : null}
     </div>
   );
 };

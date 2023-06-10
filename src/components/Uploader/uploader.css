@@ -1,0 +1,43 @@
+.uploader{
+    background-color: #fafafa;
+    max-width: 700px;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    position: relative;
+    left:575px;
+}
+
+.uploader-data{
+    padding: 30px;
+}
+
+.uploader-image-button{
+    margin-right: 20px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+.uploader-icon{
+    margin-right: 10px;
+}
+.uploader-image-uploader{
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+    
+.uploader-image-field{
+    display: none;
+}
+
+.uploader-actions{
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.uploader-progress{
+    width: 100%;
+}
+

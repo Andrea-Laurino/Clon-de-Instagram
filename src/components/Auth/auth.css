@@ -1,0 +1,35 @@
+.auth-logo{
+    object-fit: contain;
+    height: 63px;
+    width: 178px;
+}
+
+.auth-dialog-title{
+    display: flex;
+    justify-content: space-around;
+}
+
+.auth-dialog-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-dialog-input{
+    margin-top: 10px;
+}
+
+.auth-dialog-error{
+    margin-top: 10px;
+    max-width: 225px;
+}
+
+.header-avatar{
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+}
+
+p{
+    margin-top: 10px;
+    margin-left: 10px;
+}
