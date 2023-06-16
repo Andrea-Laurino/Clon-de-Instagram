@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './post.css';
 import { Avatar, TextField, Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -10,23 +10,31 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db } from '../../Firebase/firebase';
-import { collection, orderBy, onSnapshot, serverTimestamp, addDoc, query, getDocs } from 'firebase/firestore';
+import { collection, orderBy, onSnapshot, serverTimestamp, addDoc, query} from 'firebase/firestore';
 
-const Post = (props) => {
+const Post = ( props ) => {
   const [liked, setLiked] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
   const [comment, setComment] = useState('');
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
   const [comments, setComments] = useState([]);
+  
+ // console.log(props)
 
   useEffect(() => {
     const auth = getAuth();
+    const user = auth.currentUser;
+    //console.log(user.displayName) //devuelve el nombre del usuario logueado
+     
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user || null);
+      setUser(user || '');
+    
+    
     });
     return () => {
       unsubscribe();
+      user;
     };
   }, []);
 
@@ -58,8 +66,9 @@ const Post = (props) => {
       await addDoc(collection(db, 'posts', props.id, 'comments'), {
         timestamp: serverTimestamp(),
         text: comment,
-        username: props.username
+        username: user.displayName
       });
+      
       setComment('');
       setShowCommentInput(false);
     } catch (error) {
@@ -78,6 +87,11 @@ const Post = (props) => {
   const handleBookmarkClick = () => {
     setBookmarked((prevState) => !prevState);
   };
+
+
+  //console.log(user.displayName)
+  
+ 
 
   return (
     <div className='post'>
@@ -122,7 +136,7 @@ const Post = (props) => {
           <h5 className='post-alert'>Inicia sesión para ver las acciones</h5>
         )}
         <h4 className='post-description'>
-          <strong>{props.username}</strong>: {'  '}
+          <strong>{ props.username }</strong>: {'  '}
             {props.caption}
         </h4>
       </div>

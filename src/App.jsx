@@ -13,9 +13,10 @@ async function fetchPosts() {
     const snapshot = await getDocs(q);
     
     const posts = snapshot.docs.map(doc => ({
-      id: doc.id,
-      post: doc.data()
+      post: doc.data(),
+      id: doc.id
     }));
+   // console.log(posts.username)
     
     return posts;
   } catch (error) {
@@ -27,10 +28,11 @@ async function fetchPosts() {
 
 function App() { 
   const [posts, setPosts] = useState([]);
-
+  
   const unsubscribe = async () => {
     const fetchedPosts = await fetchPosts();
     setPosts(fetchedPosts);
+    console.log(fetchedPosts)
   }
 
   useEffect(() => {
@@ -50,7 +52,6 @@ function App() {
           caption={post.caption}
         />
       ))}
-
       <Uploader />
     </div>
   );

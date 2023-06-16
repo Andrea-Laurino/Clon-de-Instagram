@@ -1,4 +1,4 @@
-.historyPanel{
+.historyPanel {
     position: relative;
     left: 600px;
     top: 10px;
@@ -8,12 +8,43 @@
     padding: 0 10px;
     border-bottom: 1px solid lightgray;
     display: flex;
-
-}
-
-.historyPanel-avatar{
+  }
+  
+  .historyPanel-avatar {
     margin: 10px 7px;
     width: 56px !important;
     height: 56px !important;
     cursor: pointer;
-}
+  }
+  
+  @media (min-width: 768px) {
+    .historyPanel {
+      left: 250px;
+      justify-content: center;
+    }
+  
+    .historyPanel-avatar:nth-child(8),
+    .historyPanel-avatar:nth-child(9),
+    .historyPanel-avatar:nth-child(10) {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 320px) {
+    .historyPanel {
+      width: 100%; /* Cambiado a 100% */
+      left: 0; /* Cambiado a 0 */
+      justify-content: center;
+      background-color: transparent;
+    }
+  
+    .historyPanel-avatar:nth-child(5),
+    .historyPanel-avatar:nth-child(6),
+    .historyPanel-avatar:nth-child(7),
+    .historyPanel-avatar:nth-child(8),
+    .historyPanel-avatar:nth-child(9),
+    .historyPanel-avatar:nth-child(10) {
+      display: none;
+    }
+  }
+  

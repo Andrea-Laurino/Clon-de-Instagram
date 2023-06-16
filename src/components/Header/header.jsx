@@ -16,7 +16,8 @@ const header = () => {
        <div className='container-header'>
         <div className="header">
           <div className="header-logo">
-            <img alt="logo de instagram" className='img-logo' src="src/assets/instagram-logo-17.png"/>
+            <img alt="logo de instagram" className='img-logo-lg' src="src/assets/instagram-logo-17.png"/>
+            <img alt="logo de instagram" className='logo-md' src="src/assets/instagram-logo-16.png"/>
           </div>
           <div className="header-icons">
               <HomeIcon fontSize='large'/>
