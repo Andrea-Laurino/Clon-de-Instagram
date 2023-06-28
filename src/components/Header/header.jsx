@@ -19,12 +19,12 @@ const header = () => {
 						<img
 							alt="logo de instagram"
 							className="img-logo-lg"
-							src="assets/instagram-logo-17.png"
+							src="src/assets/instagram-logo-17.png"
 						/>
 						<img
 							alt="logo de instagram"
 							className="logo-md"
-							src="assets/instagram-logo-16.png"
+							src="src/assets/instagram-logo-16.png"
 						/>
 					</div>
 					<div className="header-icons">
