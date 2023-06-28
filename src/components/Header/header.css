@@ -1,112 +1,152 @@
-.container-header{
-    background-color: #fafafa;
-    border-right: 1px solid #d3d3d3;
-    width: 244px;
-    height: 936px;
-    position: fixed; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.container-header {
+	background-color: #fafafa;
+	height: auto;
+	width: 100%;
+	position: static;
+	border-right: none;
 }
 
-.header{
-    position: fixed;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;  
-    justify-content: space-between;
-    left: 20px;
-    top: 40px;
+.header {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px 20px;
 }
 
-.header-logo{
-    object-fit: contain;
+.header-logo {
+	margin: 5px;
+	display: flex;
+	align-items: center;
 }
 
-
-.img-logo-lg{
-    height: 63px;
-    width: 178px;
+.img-logo-lg {
+	display: none;
+}
+.logo-md {
+	cursor: pointer;
+}
+.header-icons {
+	/* margin: 0 20px; */
+	padding: 0;
+}
+.header-icons:nth-child(1),
+.header-icons:nth-child(2),
+.header-icons:nth-child(4),
+.header-icons:nth-child(5),
+.header-icons:nth-child(6),
+.header-icons:nth-child(7),
+.header-icons:nth-child(8),
+.header-icons:nth-child(10) {
+	display: none;
 }
 
-.header-icons{
-    display: flex;
-    flex-direction: row;
-    justify-content:left;
-    line-height:18px;
-    margin:4px 0px;
-    padding:12px;
+.header-txt {
+	font-weight: normal;
+	padding-left: 35px;
+	align-self: center;
 }
 
-p{
-    margin-top: 10px;
-    margin-left: 10px;
+.header-icons:nth-child(9) {
+	p {
+		display: none;
+	}
 }
-
-.header-plus{
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 25px;
-    left: 20px;
+.header-icons:nth-child(3),
+.header-icons:nth-child(9) {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
-
-p{
-    font-weight: normal;
-    padding-left: 35px;
-}
-
-.header-icons:nth-child(10){
-    display: inline-flex;
-    margin-top: 210px ;
-   
-}
-
 @media (min-width: 768px) {
-    .logo-sm{
-        display: none;
-    }
-    .header-icons:nth-child(10){
-        margin-top: 350px ;
-       
-    }
+	.container-header {
+		border-right: 1px solid #d3d3d3;
+		width: 100px;
+		height: 936px;
+		position: fixed;
+	}
+	.header {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.header-txt {
+		display: none;
+	}
+	.header-logo {
+		object-fit: contain;
+	}
+	.img-logo-lg {
+		display: none;
+	}
+	.logo-md {
+		display: block;
+	}
+	.header-icons {
+		line-height: 18px;
+		margin: 4px 0px;
+		padding: 12px;
+	}
+	.header-icons:nth-child(1),
+	.header-icons:nth-child(2),
+	.header-icons:nth-child(3),
+	.header-icons:nth-child(4),
+	.header-icons:nth-child(5),
+	.header-icons:nth-child(6),
+	.header-icons:nth-child(7),
+	.header-icons:nth-child(8),
+	.header-icons:nth-child(9),
+	.header-icons:nth-child(10) {
+		display: flex;
+	}
+
+	.header-plus {
+		position: fixed;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		font-size: 25px;
+		left: 20px;
+	}
+	.header-icons:nth-child(10) {
+		display: inline-flex;
+		margin-top: 210px;
+	}
 }
-@media (min-width: 320px) {
-    .container-header {
-      width: 100%;
-      height: auto;
-      flex-direction: row;
-      align-items: center;
-  
-      position: static;
-      border-right: none;
-    }
-  
-    .header {
-        width: 13%;
-        height: 100vh;
-        align-items: flex-start;
-        left: 0;
-        top: 0;
-        padding: 20px;
-      }
-    .header-logo{
-        margin-bottom: 40px;
-    }
-    .header-icons {
-      margin: 0 10px;
-      padding: 0;
-    }
-    .img-logo-lg{
-        display: none;
-    }
-    .logo-sm{
-        cursor: pointer ;
-        
-    }
-    p{
-        display: none;
-    }
+@media (min-width: 1024px) {
+	.container-header {
+		width: 220px;
+		border-right: 1px solid #d3d3d3;
+		height: 936px;
+		position: fixed;
+	}
+	.header {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.header-txt {
+		display: flex;
+	}
+	.header-logo {
+		object-fit: contain;
+	}
+	.logo-md {
+		display: none;
+	}
+	.img-logo-lg {
+		display: block;
+		height: 63px;
+		width: 178px;
+	}
 }
-  
+@media (min-width: 1440px) {
+	.container-header {
+		width: 244px;
+	}
+}

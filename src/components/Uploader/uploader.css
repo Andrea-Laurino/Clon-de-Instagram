@@ -1,52 +1,49 @@
-.uploader{
-    background-color: #fafafa;
-    max-width: 700px;
-    border-top: 1px solid lightgray;
-    border-right: 1px solid lightgray;
-    border-left: 1px solid lightgray;
-    position: relative;
-    left:575px;
+.uploader {
+	display: flex;
+	justify-content: center;
 }
 
-.uploader-data{
-    padding: 30px;
+.uploader-data {
+	padding: 30px;
+	margin-bottom: 15px;
+	align-self: center;
+	background-color: #fafafa;
+	border: 1px solid lightgray;
 }
 
-.uploader-image-button{
-    margin-right: 20px !important;
-    padding-left: 30px !important;
-    padding-right: 30px !important;
+.uploader-image-button {
+	margin-right: 20px !important;
+	padding-left: 30px !important;
+	padding-right: 30px !important;
 }
-.uploader-icon{
-    margin-right: 10px;
+.uploader-icon {
+	margin-right: 10px;
 }
-.uploader-image-uploader{
-    padding-bottom: 30px;
-    display: flex;
-    align-items: center;
-}
-    
-.uploader-image-field{
-    display: none;
+.uploader-image-uploader {
+	padding-bottom: 30px;
+	display: flex;
+	align-items: center;
 }
 
-.uploader-actions{
-    margin-top: 20px;
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
+.uploader-image-field {
+	display: none;
 }
 
-.uploader-progress{
-    width: 100%;
+.uploader-actions {
+	margin-top: 20px;
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+}
+
+.uploader-progress {
+	width: 100%;
 }
 
 @media (max-width: 768px) {
-    .uploader {
-        background-color: #fafafa;
-        width: 400px;
-        border-top: 1px solid lightgray;
-        position: sticky;
-        
-    }
+	.uploader {
+		background-color: #fafafa;
+		width: auto;
+		position: sticky;
+	}
 }

@@ -1,35 +1,40 @@
-.auth-logo{
-    object-fit: contain;
-    height: 63px;
-    width: 178px;
+.auth-logo {
+	object-fit: contain;
+	height: 63px;
+	width: 178px;
 }
 
-.auth-dialog-title{
-    display: flex;
-    justify-content: space-around;
+.auth-dialog-title {
+	display: flex;
+	justify-content: space-around;
 }
 
-.auth-dialog-content{
-    display: flex;
-    flex-direction: column;
+.auth-dialog-content {
+	display: flex;
+	flex-direction: column;
 }
 
-.auth-dialog-input{
-    margin-top: 10px;
+.auth-dialog-input {
+	margin-top: 10px;
 }
 
-.auth-dialog-error{
-    margin-top: 10px;
-    max-width: 225px;
+.auth-dialog-error {
+	margin-top: 10px;
+	max-width: 225px;
 }
 
-.header-avatar{
-    display: flex;
-    flex-direction: row;
-    justify-content:left;
+.header-avatar {
+	display: flex;
+	flex-direction: row;
 }
 
-p{
-    margin-top: 10px;
-    margin-left: 10px;
+.header-avatar-txt {
+	margin-top: 10px;
+	margin-left: 25px;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+	.header-avatar-txt {
+		display: none;
+	}
 }

@@ -1,89 +1,94 @@
-.post{
-    background-color: white;
-    max-width: 500px;
-    max-height: 900px;
-    border-bottom: 1px solid lightgray;
-    margin: 0 auto;
-    margin-bottom: 45px;
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.post {
+	background-color: white;
+	max-width: 500px;
+	max-height: 900px;
+	border-bottom: 1px solid lightgray;
+	margin: 0 auto;
+	margin-bottom: 45px;
+	margin-top: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.post-image{
-    width: 100%;
-    object-fit: contain;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-    border-radius: 3px;
-    background-color: black;
+.post-image {
+	width: 100%;
+	object-fit: contain;
+	border-top: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+	border-radius: 3px;
+	background-color: black;
 }
 
-.post-description{
-    font-weight: normal;
-    padding: 20px;
+.post-description {
+	font-weight: normal;
+	padding: 20px;
 }
 
-.post-comment{
-    font-weight: normal;
-    padding-left: 20px;
-    margin-bottom: 10px;
+.post-comment {
+	font-weight: normal;
+	padding-left: 20px;
+	margin-bottom: 10px;
 }
 
-.post-alert{
-    padding: 10px 20px;
-    padding-bottom: 0;
-    font-weight: normal;
-    color: darkgray;
+.post-alert {
+	padding: 10px 20px;
+	padding-bottom: 0;
+	font-weight: normal;
+	color: darkgray;
 }
 
-.post-header{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
+.post-header {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 20px;
 }
 
-.post-avatar{
-    margin-right: 10px;
-    margin-left: 5px;
+.post-avatar {
+	margin-right: 10px;
+	margin-left: 5px;
+	background: linear-gradient(#bdbdbd, #bdbdbd) padding-box,
+		linear-gradient(45deg, #fdf497, #fdf497, #fd5949, #d6249f, #285aeb)
+			border-box;
+	border-radius: 50em;
+	border: 2px solid transparent;
 }
 
-.post-icons{
-    margin: 5px 10px;
-    display: flex;
-    justify-content: space-between;
+.post-icons {
+	margin: 5px 10px;
+	display: flex;
+	justify-content: space-between;
 }
 
-.post-icons div{
-    display: flex;
+.post-icons div {
+	display: flex;
 }
 
-.post-icon{
-    cursor: pointer;
-    margin: 0 5px;
+.post-icon {
+	cursor: pointer;
+	margin: 0 5px;
 }
 
-.post-comments{
-    margin-bottom: 15px;
+.post-comments {
+	margin-bottom: 15px;
 }
 .post-comment-form {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-    margin-top: 0;
+	display: flex;
+	justify-content: space-between;
+	margin: 20px;
+	margin-top: 0;
 }
 
-.post-comment-button{
-    margin-left: 20px !important;
+.post-comment-button {
+	margin-left: 20px !important;
 }
 
 .css-1rcvvn7-MuiInputBase-root-MuiInput-root:after {
-    border-bottom: 2px solid  #737679 !important;
+	border-bottom: 2px solid #737679 !important;
 }
 .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
-    color: #737679 !important;
-    margin-top: 5px;
+	color: #737679 !important;
+	margin-top: 5px;
 }
