@@ -1,0 +1,7 @@
+.skeleton-container {
+	display: flex;
+	flex-direction: column;
+}
+.skeleton-card {
+	justify-content: center;
+}

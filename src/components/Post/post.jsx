@@ -94,7 +94,7 @@ const Post = (props) => {
 	};
 
 	return (
-		<div className="post">
+		<div className="post" width={40} height={40}>
 			<div className="post-header">
 				<Avatar className="post-avatar" alt={props.username} src="" />
 				<h3>{props.username}</h3>
