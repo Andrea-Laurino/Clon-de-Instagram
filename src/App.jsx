@@ -6,7 +6,6 @@ import { db } from './Firebase/firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import HistoryPanel from './components/HistoryPanel/historyPanel';
 import Uploader from './components/Uploader/uploader';
-import Skeleton from './components/Skeleton/skeleton';
 
 async function fetchPosts() {
 	try {
@@ -45,7 +44,7 @@ function App() {
 			</div>
 			<div className="HistoryPanel">
 				<HistoryPanel />
-				<Skeleton align="center" />
+
 				{posts.map(({ id, post }) => (
 					<Post
 						key={id}
