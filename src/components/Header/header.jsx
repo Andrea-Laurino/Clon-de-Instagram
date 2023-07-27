@@ -10,9 +10,6 @@ import MenuIcon from '@mui/icons-material/Menu'; //menu hamburguesa
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import Auth from '../Auth/auth';
 
-import instagramLarge from '../../assets/instagram-logo-17.png';
-import instagramSmall from '../../assets/instagram-logo-16.png';
-
 const header = () => {
 	return (
 		<>
@@ -22,12 +19,12 @@ const header = () => {
 						<img
 							alt="logo de instagram"
 							className="img-logo-lg"
-							src={instagramLarge}
+							src="src/assets/instagram-logo-17.png"
 						/>
 						<img
 							alt="logo de instagram"
 							className="logo-md"
-							src={instagramSmall}
+							src="src/assets/instagram-logo-16.png"
 						/>
 					</div>
 					<div className="header-icons">
